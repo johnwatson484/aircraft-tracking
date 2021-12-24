@@ -19,7 +19,8 @@ const schema = Joi.object().keys({
     host: Joi.string(),
     port: Joi.number().default(5672),
     username: Joi.string(),
-    password: Joi.string()
+    password: Joi.string(),
+    exchange: Joi.string().default('aircraft-tracked')
   }),
   frequency: Joi.number().default(30000) // 30 seconds
 })
@@ -42,7 +43,8 @@ const config = {
     host: process.env.MESSAGE_HOST,
     port: process.env.MESSAGE_PORT,
     username: process.env.MESSAGE_USERNAME,
-    password: process.env.MESSAGE_PASSWORD
+    password: process.env.MESSAGE_PASSWORD,
+    exchange: process.env.MESSAGE_EXCHANGE
   },
   frequency: process.env.FREQUENCY
 }

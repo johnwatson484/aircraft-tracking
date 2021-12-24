@@ -1,12 +1,13 @@
 const { get } = require('./api')
 const { getBoundingBox } = require('./geo')
+const publishAircraft = require('./publish-aircraft')
 
 const trackAircraft = async () => {
   const bbox = getBoundingBox()
   const { lamin, lomin, lamax, lomax } = bbox
   const response = await get(`states/all?lamin=${lamin}&lomin=${lomin}&lamax=${lamax}&lomax=${lomax}`)
   const transformedResponse = transformResponse(response)
-  console.log(transformedResponse)
+  await publishAircraft(transformedResponse)
 }
 
 const transformResponse = (response) => {
