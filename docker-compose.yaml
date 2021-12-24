@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  aircraft-tracking:
+    build: .
+    image: aircraft-tracking
+    container_name: aircraft-tracking

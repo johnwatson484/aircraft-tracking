@@ -1,0 +1,28 @@
+{
+  "name": "aircraft-tracking",
+  "version": "1.0.0",
+  "description": "Publish alerts for aircraft in a geographic region",
+  "main": "index.js",
+  "scripts": {
+    "start:watch": "nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js",
+    "start:debug": "nodemon --inspect-brk=0.0.0.0 --ext js --legacy-watch app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnwatson484/aircraft-tracking.git"
+  },
+  "author": "John Watson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnwatson484/aircraft-tracking/issues"
+  },
+  "homepage": "https://github.com/johnwatson484/aircraft-tracking#readme",
+  "dependencies": {
+    "@hapi/wreck": "^17.1.0",
+    "joi": "^17.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14",
+    "standard": "^16.0.4"
+  }
+}

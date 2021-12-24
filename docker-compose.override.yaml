@@ -1,0 +1,16 @@
+version: '3.8'
+
+# This override file should be used when running this service in isolation
+# to provide dependencies and expose ports for local testing
+
+services:
+  aircraft-tracking:
+    build:
+      target: development
+    image: aircraft-tracking-development
+    container_name: aircraft-tracking-development
+    ports:
+      - "9229:9229"
+    volumes:
+      - ./app:/home/node/app
+      - ./package.json:/home/node/package.json
