@@ -14,3 +14,23 @@ services:
     volumes:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
+    depends_on: 
+      - aircraft-message
+    environment:
+      MESSAGE_HOST: aircraft-message
+      MESSAGE_USERNAME: rabbitmq
+      MESSAGE_PASSWORD: rabbitmq
+      MESSAGE_QUEUE: aircraft
+
+  aircraft-message:
+    image: rabbitmq:3-management-alpine
+    container_name: aircraft-message
+    hostname: aircraft-message
+    environment:
+      RABBITMQ_ERLANG_COOKIE: rabbitmq
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+      RABBITMQ_DEFAULT_VHOST: /
+    ports:
+      - "15672:15672"
+      - "5672:5672"

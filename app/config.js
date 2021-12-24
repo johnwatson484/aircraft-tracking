@@ -15,6 +15,12 @@ const schema = Joi.object().keys({
     latitude: Joi.number().required(),
     distance: Joi.number().default(1100)
   }),
+  message: Joi.object({
+    host: Joi.string(),
+    port: Joi.number().default(5672),
+    username: Joi.string(),
+    password: Joi.string()
+  }),
   frequency: Joi.number().default(30000) // 30 seconds
 })
 
@@ -31,6 +37,12 @@ const config = {
     longitude: process.env.GEO_LONGITUDE,
     latitude: process.env.GEO_LATITUDE,
     distance: process.env.GEO_DISTANCE
+  },
+  message: {
+    host: process.env.MESSAGE_HOST,
+    port: process.env.MESSAGE_PORT,
+    username: process.env.MESSAGE_USERNAME,
+    password: process.env.MESSAGE_PASSWORD
   },
   frequency: process.env.FREQUENCY
 }
