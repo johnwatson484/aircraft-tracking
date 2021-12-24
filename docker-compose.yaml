@@ -4,3 +4,8 @@ services:
     build: .
     image: aircraft-tracking
     container_name: aircraft-tracking
+    environment:
+      API_USERNAME: ${API_USERNAME}
+      API_PASSWORD: ${API_PASSWORD}
+      GEO_LONGITUDE: ${GEO_LONGITUDE}
+      GEO_LATITUDE: ${GEO_LATITUDE}

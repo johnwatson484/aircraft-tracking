@@ -3,12 +3,36 @@ const envs = ['development', 'test', 'production']
 
 // Define config schema
 const schema = Joi.object().keys({
-  env: Joi.string().valid(...envs).default(envs[0])
+  env: Joi.string().valid(...envs).default(envs[0]),
+  api: Joi.object({
+    protocol: Joi.string().default('https'),
+    host: Joi.string().default('opensky-network.org/api'),
+    username: Joi.string(),
+    password: Joi.string()
+  }),
+  geo: Joi.object({
+    longitude: Joi.number().required(),
+    latitude: Joi.number().required(),
+    distance: Joi.number().default(10)
+  }),
+  frequency: Joi.number().default(30000) // 30 seconds
 })
 
 // Build config
 const config = {
-  env: process.env.NODE_ENV
+  env: process.env.NODE_ENV,
+  api: {
+    protocol: process.env.API_PROTOCOL,
+    host: process.env.API_HOST,
+    username: process.env.API_USERNAME,
+    password: process.env.API_PASSWORD
+  },
+  geo: {
+    longitude: process.env.GEO_LONGITUDE,
+    latitude: process.env.GEO_LATITUDE,
+    distance: process.env.GEO_DISTANCE
+  },
+  frequency: process.env.FREQUENCY
 }
 
 // Validate config
