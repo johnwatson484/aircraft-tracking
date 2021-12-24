@@ -20,7 +20,6 @@ services:
       MESSAGE_HOST: aircraft-message
       MESSAGE_USERNAME: rabbitmq
       MESSAGE_PASSWORD: rabbitmq
-      MESSAGE_QUEUE: aircraft
 
   aircraft-message:
     image: rabbitmq:3-management-alpine
