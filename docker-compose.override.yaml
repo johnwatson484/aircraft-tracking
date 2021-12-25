@@ -13,6 +13,7 @@ services:
       - "9229:9229"
     volumes:
       - ./app:/home/node/app
+      - ./scripts:/home/scripts
       - ./package.json:/home/node/package.json
     depends_on: 
       - aircraft-message
@@ -20,6 +21,10 @@ services:
       MESSAGE_HOST: aircraft-message
       MESSAGE_USERNAME: rabbitmq
       MESSAGE_PASSWORD: rabbitmq
+    entrypoint: >
+      sh -c "
+        scripts/wait-for aircraft-message:5672 --
+        npm run start:watch"
 
   aircraft-message:
     image: rabbitmq:3-management-alpine
