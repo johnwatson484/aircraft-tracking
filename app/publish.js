@@ -1,7 +1,7 @@
 const amqp = require('amqplib/callback_api')
 const { message } = require('./config')
 
-const publishAircraft = async (aircraft) => {
+const publish = async (aircraft) => {
   const { host, port, username, password, exchange } = message
   amqp.connect(`amqp://${username}:${password}@${host}:${port}/`, function (error0, connection) {
     if (error0) {
@@ -24,4 +24,4 @@ const publishAircraft = async (aircraft) => {
   })
 }
 
-module.exports = publishAircraft
+module.exports = publish

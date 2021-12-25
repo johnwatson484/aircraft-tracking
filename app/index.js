@@ -1,7 +1,7 @@
-const trackAircraft = require('./track-aircraft')
+const { start } = require('./track')
 
 const main = async () => {
-  await trackAircraft()
+  await start()
 }
 
 main()

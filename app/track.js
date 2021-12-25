@@ -1,13 +1,24 @@
 const { get } = require('./api')
 const { getBoundingBox } = require('./geo')
-const publishAircraft = require('./publish-aircraft')
+const publish = require('./publish')
+const { frequency } = require('./config')
+
+const start = async () => {
+  try {
+    await trackAircraft()
+  } catch (err) {
+    console.error(err)
+  } finally {
+    setTimeout(start, frequency)
+  }
+}
 
 const trackAircraft = async () => {
   const bbox = getBoundingBox()
   const { lamin, lomin, lamax, lomax } = bbox
   const response = await get(`states/all?lamin=${lamin}&lomin=${lomin}&lamax=${lamax}&lomax=${lomax}`)
   const transformedResponse = transformResponse(response)
-  await publishAircraft(transformedResponse)
+  await publish(transformedResponse)
 }
 
 const transformResponse = (response) => {
@@ -32,4 +43,6 @@ const transformResponse = (response) => {
   }))
 }
 
-module.exports = trackAircraft
+module.exports = {
+  start
+}
