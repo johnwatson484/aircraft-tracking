@@ -5,6 +5,7 @@ const { frequency } = require('./config')
 
 const start = async () => {
   try {
+    console.log('Tracking')
     await trackAircraft()
   } catch (err) {
     console.error(err)
@@ -22,7 +23,7 @@ const trackAircraft = async () => {
 }
 
 const transformResponse = (response) => {
-  return response.states.map(x => ({
+  return response.states?.map(x => ({
     icao24: x[0],
     callSign: x[1],
     originCountry: x[2],
@@ -40,7 +41,7 @@ const transformResponse = (response) => {
     squawk: x[14],
     spi: x[15],
     positionSource: x[16]
-  }))
+  })) ?? []
 }
 
 module.exports = {

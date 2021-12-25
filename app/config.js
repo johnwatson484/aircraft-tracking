@@ -13,7 +13,7 @@ const schema = Joi.object().keys({
   geo: Joi.object({
     longitude: Joi.number().required(),
     latitude: Joi.number().required(),
-    distance: Joi.number().default(1100)
+    distance: Joi.number().default(2000)
   }),
   message: Joi.object({
     host: Joi.string(),

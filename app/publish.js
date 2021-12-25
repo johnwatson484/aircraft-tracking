@@ -18,6 +18,7 @@ const publish = async (aircraft) => {
 
       for (const msg of aircraft) {
         channel.publish(exchange, '', Buffer.from(JSON.stringify(msg)))
+        console.log('Flight detected:', JSON.stringify(msg))
       }
       connection.close()
     })
