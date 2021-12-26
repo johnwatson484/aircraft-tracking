@@ -1,28 +1,20 @@
-const amqp = require('amqplib/callback_api')
+const amqp = require('amqplib')
 const { message } = require('./config')
 
 const publish = async (aircraft) => {
   const { host, port, username, password, exchange } = message
-  amqp.connect(`amqp://${username}:${password}@${host}:${port}/`, function (error0, connection) {
-    if (error0) {
-      throw error0
-    }
-    connection.createChannel(function (error1, channel) {
-      if (error1) {
-        throw error1
-      }
-
-      channel.assertExchange(exchange, 'fanout', {
-        durable: false
-      })
-
-      for (const msg of aircraft) {
-        channel.publish(exchange, '', Buffer.from(JSON.stringify(msg)))
-        console.log('Flight detected:', JSON.stringify(msg))
-      }
-      connection.close()
-    })
+  const connection = await amqp.connect(`amqp://${username}:${password}@${host}:${port}`)
+  const channel = await connection.createChannel()
+  await channel.assertExchange(exchange, 'fanout', {
+    durable: false
   })
+
+  for (const msg of aircraft) {
+    const body = JSON.stringify(msg)
+    await channel.publish(exchange, '', Buffer.from(body))
+    console.log('Flight detected:', body)
+  }
+  connection.close()
 }
 
 module.exports = publish
