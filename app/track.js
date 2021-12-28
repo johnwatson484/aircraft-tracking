@@ -5,7 +5,6 @@ const { frequency } = require('./config')
 
 const start = async () => {
   try {
-    console.log('Tracking')
     await trackAircraft()
   } catch (err) {
     console.error(err)
