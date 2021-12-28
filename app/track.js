@@ -25,7 +25,7 @@ const trackAircraft = async () => {
 const transformResponse = (response) => {
   return response.states?.map(x => ({
     icao24: x[0],
-    callSign: x[1],
+    callSign: x[1].trim(),
     originCountry: x[2],
     timePosition: x[3],
     lastContact: x[4],
