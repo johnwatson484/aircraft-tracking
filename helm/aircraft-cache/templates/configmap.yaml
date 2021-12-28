@@ -1,0 +1,7 @@
+{{- include "helm-library.configmap" (list . "aircraft-tracking.configmap") -}}
+{{- define "aircraft-tracking.configmap" -}}
+data:
+  NODE_ENV: {{ quote .Values.environment }}
+  MESSAGE_HOST: {{ quote .Values.container.messageHost }}  
+  MESSAGE_EXCHANGE: {{ quote .Values.container.messageExchange }}
+{{- end -}}
