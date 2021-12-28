@@ -11,6 +11,10 @@ container:
   messageHost:
   messagePassword:
   messageExchange: aircraft-tracked
+  apiUsername:
+  apiPassword:
+  geoLongitude:
+  geoLatitude:
 
 deployment:
   restartPolicy: Always
