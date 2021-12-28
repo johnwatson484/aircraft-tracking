@@ -8,10 +8,10 @@ const getBoundingBox = () => {
   const bbox = getBboxFromPoint(point, distance)
 
   return {
-    lamin: bbox[0],
-    lomin: bbox[1],
-    lamax: bbox[2],
-    lomax: bbox[3]
+    lomin: bbox[0],
+    lamin: bbox[1],
+    lomax: bbox[2],
+    lamax: bbox[3]
   }
 }
 
