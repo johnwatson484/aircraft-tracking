@@ -1,6 +1,6 @@
 {
   "name": "aircraft-tracking",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Publish alerts for aircraft in a geographic region",
   "main": "index.js",
   "scripts": {
