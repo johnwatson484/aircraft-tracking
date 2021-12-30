@@ -1,3 +1,5 @@
+const { geo } = require('./config')
+
 const transformAircraftResponse = (response) => {
   return response.states?.map(x => ({
     icao24: x[0],
@@ -19,7 +21,12 @@ const transformAircraftResponse = (response) => {
     squawk: x[14],
     spi: x[15],
     positionSource: x[16],
-    timestamp: new Date()
+    timestamp: new Date(),
+    source: {
+      longitude: geo.longitude,
+      latitude: geo.latitude,
+      distance: geo.distance
+    }
   })) ?? []
 }
 
