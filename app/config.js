@@ -22,7 +22,7 @@ const schema = Joi.object().keys({
     password: Joi.string(),
     exchange: Joi.string().default('aircraft-tracked')
   }),
-  frequency: Joi.number().default(30000) // 30 seconds
+  frequency: Joi.number().default(10000) // 10 seconds
 })
 
 // Build config
