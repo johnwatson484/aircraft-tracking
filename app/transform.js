@@ -16,7 +16,7 @@ const transformAircraftResponse = (response) => {
     velocity: x[9] ?? 0,
     velocityMph: x[9] == null ? 0 : (Math.round(x[9] * 2.23694)),
     trueTrack: x[10],
-    trueTrackRadians: x[10] == null ? 0 : (Math.round(x[10] * 0.0174533)),
+    trueTrackRadians: x[10] == null ? 0 : x[10] * 0.0174533,
     verticalRate: x[11] ?? 0,
     verticalRateMph: x[11] == null ? 0 : (Math.round(x[11] * 2.23694)),
     sensors: x[12],
