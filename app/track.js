@@ -15,7 +15,6 @@ const start = async () => {
 }
 
 const trackAircraft = async () => {
-  console.log('Scanning')
   const bbox = getBoundingBox()
   const { lamin, lomin, lamax, lomax } = bbox
   const aircraft = await get(`states/all?lamin=${lamin}&lomin=${lomin}&lamax=${lamax}&lomax=${lomax}`)
