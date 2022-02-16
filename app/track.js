@@ -19,7 +19,9 @@ const trackAircraft = async () => {
   const { lamin, lomin, lamax, lomax } = bbox
   const aircraft = await get(`states/all?lamin=${lamin}&lomin=${lomin}&lamax=${lamax}&lomax=${lomax}`)
   const transformedResponse = transformAircraftResponse(aircraft)
-  await publish(transformedResponse)
+  if (transformedResponse.length) {
+    await publish(transformedResponse)
+  }
 }
 
 module.exports = {
