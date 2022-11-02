@@ -1,14 +1,14 @@
-environment: development
+environment: production
 name: aircraft-tracking
 image: aircraft-tracking
 
 container:
-  imagePullPolicy: Always
   requestMemory: 120Mi
   requestCpu: 120m
   limitMemory: 120Mi
   limitCpu: 120m
   messageHost:
+  messageUsername:
   messagePassword:
   messageExchange: aircraft-tracked
   apiUsername:
@@ -16,10 +16,7 @@ container:
   geoLongitude:
   geoLatitude:
 
-deployment:
-  restartPolicy: Always
-  replicas: 1
-  minReadySeconds: 0
+deployment: {}
 
 secret:
   type: Opaque
