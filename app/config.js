@@ -13,7 +13,7 @@ const schema = Joi.object().keys({
   geo: Joi.object({
     longitude: Joi.number().required(),
     latitude: Joi.number().required(),
-    distance: Joi.number().default(10)
+    distance: Joi.number().default(15)
   }),
   message: Joi.object({
     host: Joi.string(),
@@ -22,7 +22,7 @@ const schema = Joi.object().keys({
     password: Joi.string(),
     exchange: Joi.string().default('aircraft-tracked')
   }),
-  frequency: Joi.number().default(10000) // 10 seconds
+  frequency: Joi.number().default(90000) // 90 seconds
 })
 
 // Build config
