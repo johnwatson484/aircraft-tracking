@@ -8,21 +8,21 @@ const schema = Joi.object().keys({
     protocol: Joi.string().default('https'),
     host: Joi.string().default('opensky-network.org/api'),
     username: Joi.string(),
-    password: Joi.string()
+    password: Joi.string(),
   }),
   geo: Joi.object({
     longitude: Joi.number().required(),
     latitude: Joi.number().required(),
-    distance: Joi.number().default(15)
+    distance: Joi.number().default(15),
   }),
   message: Joi.object({
     host: Joi.string(),
     port: Joi.number().default(5672),
     username: Joi.string(),
     password: Joi.string(),
-    exchange: Joi.string().default('aircraft-tracked')
+    exchange: Joi.string().default('aircraft-tracked'),
   }),
-  frequency: Joi.number().default(90000) // 90 seconds
+  frequency: Joi.number().default(90000), // 90 seconds
 })
 
 // Build config
@@ -32,21 +32,21 @@ const config = {
     protocol: process.env.API_PROTOCOL,
     host: process.env.API_HOST,
     username: process.env.API_USERNAME,
-    password: process.env.API_PASSWORD
+    password: process.env.API_PASSWORD,
   },
   geo: {
     longitude: process.env.GEO_LONGITUDE,
     latitude: process.env.GEO_LATITUDE,
-    distance: process.env.GEO_DISTANCE
+    distance: process.env.GEO_DISTANCE,
   },
   message: {
     host: process.env.MESSAGE_HOST,
     port: process.env.MESSAGE_PORT,
     username: process.env.MESSAGE_USERNAME,
     password: process.env.MESSAGE_PASSWORD,
-    exchange: process.env.MESSAGE_EXCHANGE
+    exchange: process.env.MESSAGE_EXCHANGE,
   },
-  frequency: process.env.FREQUENCY
+  frequency: process.env.FREQUENCY,
 }
 
 // Validate config

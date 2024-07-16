@@ -10,10 +10,10 @@ const get = async (path) => {
 
 const getConfiguration = () => {
   return {
-    json: true
+    json: true,
   }
 }
 
 module.exports = {
-  get
+  get,
 }

@@ -6,7 +6,7 @@ const publish = async (aircraft) => {
   const connection = await amqp.connect(`amqp://${username}:${password}@${host}:${port}`)
   const channel = await connection.createChannel()
   await channel.assertExchange(exchange, 'fanout', {
-    durable: true
+    durable: true,
   })
 
   for (const msg of aircraft) {

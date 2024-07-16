@@ -28,11 +28,11 @@ const transformAircraftResponse = (response) => {
     source: {
       longitude: geo.longitude,
       latitude: geo.latitude,
-      distance: geo.distance
-    }
+      distance: geo.distance,
+    },
   })) ?? []
 }
 
 module.exports = {
-  transformAircraftResponse
+  transformAircraftResponse,
 }

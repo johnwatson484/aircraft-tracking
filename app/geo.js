@@ -11,7 +11,7 @@ const getBoundingBox = () => {
     lomin: bbox[0],
     lamin: bbox[1],
     lomax: bbox[2],
-    lamax: bbox[3]
+    lamax: bbox[3],
   }
 }
 
@@ -22,5 +22,5 @@ const getBboxFromPoint = (point, distance) => {
 }
 
 module.exports = {
-  getBoundingBox
+  getBoundingBox,
 }

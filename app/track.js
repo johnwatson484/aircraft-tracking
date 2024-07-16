@@ -25,5 +25,5 @@ const trackAircraft = async () => {
 }
 
 module.exports = {
-  start
+  start,
 }
