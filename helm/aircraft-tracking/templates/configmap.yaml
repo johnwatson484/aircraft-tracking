@@ -4,6 +4,4 @@ data:
   NODE_ENV: {{ quote .Values.environment }}
   MESSAGE_HOST: {{ quote .Values.container.messageHost }}  
   MESSAGE_EXCHANGE: {{ quote .Values.container.messageExchange }}
-  GEO_LONGITUDE: {{ quote .Values.container.geoLongitude }}
-  GEO_LATITUDE: {{ quote .Values.container.geoLatitude }}
 {{- end -}}

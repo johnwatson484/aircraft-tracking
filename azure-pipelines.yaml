@@ -17,4 +17,3 @@ extends:
     name: aircraft-tracking
     deploy: true
     namespace: aircraft
-    hasSecureHelmValuesFile: true

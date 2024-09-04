@@ -7,16 +7,10 @@ container:
   requestCpu: 120m
   limitMemory: 120Mi
   limitCpu: 120m
-  messageHost:
-  messageUsername:
-  messagePassword:
+  messageHost: services.lynxmagnus.com
   messageExchange: aircraft-tracked
-  apiUsername:
-  apiPassword:
-  geoLongitude:
-  geoLatitude:
 
 deployment: {}
 
 secret:
-  type: Opaque
+  secretsPath: /aircraft-tracking
